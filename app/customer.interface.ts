@@ -1,5 +1,5 @@
 export interface Customer {
-  name: stirng;
+  name: string;
   paymentMethod: {
     type: string; // must be either 'bank' or 'card'
     card: {
