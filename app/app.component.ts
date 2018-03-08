@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Customer } from './customer.interface';
 
 @Component({
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       const changes$ = pmCtrl.controls.type.valueChanges;
       
       // subscribe to the stream
-      changes$.subscribe(paymentMethodType => {
+      changes$.subscribe((paymentMethodType: any) => {
         if (paymentMethodType === this.PAYMENT_METHOD_TYPE.BANK) {
           Object.keys(bankCtrl.controls).forEach(key => {
             bankCtrl.controls[key].setValidators(this.initPaymentMethodBankModel()[key][1]);
